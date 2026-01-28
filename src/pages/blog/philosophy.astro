@@ -3,7 +3,7 @@ import Prose from "../../layouts/Prose.astro";
 import fs from "node:fs";
 import path from "node:path";
 
-const filePath = path.join(process.cwd(), "..", "docs", "philosophy.md");
+const filePath = path.join(process.cwd(), "docs", "philosophy.md");
 const content = fs.readFileSync(filePath, "utf-8");
 
 const lines = content.split("\n");
