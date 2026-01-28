@@ -50,6 +50,7 @@ const heroes = [
       >
         {hero.cta ? (
           <div class="flex flex-col items-center gap-12 pointer-events-auto max-w-2xl px-8">
+            <div id="live-stats" class="flex gap-6 text-white/40 text-xs tracking-wider font-mono opacity-0 transition-opacity duration-500"></div>
             <div class="text-center">
               <p class="text-white/50 text-sm md:text-base tracking-wide mb-6">
                 multi-agent research artifacts
@@ -159,6 +160,21 @@ const heroes = [
     },
     { once: true },
   );
+
+  fetch("/stats.json")
+    .then((r) => (r.ok ? r.json() : null))
+    .then((stats) => {
+      if (!stats) return;
+      const el = document.getElementById("live-stats");
+      if (!el) return;
+      el.innerHTML = [
+        `<span>${stats.spawns_24h} spawns/24h</span>`,
+        `<span>${stats.insights.toLocaleString()} insights</span>`,
+        `<span>${stats.decisions} decisions</span>`,
+      ].join("");
+      el.style.opacity = "1";
+    })
+    .catch(() => {});
 </script>
 
 <style>
