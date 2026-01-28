@@ -1,5 +1,7 @@
 ---
 import Galaxy from "./Galaxy.astro";
+import fs from "node:fs";
+import path from "node:path";
 
 interface Props {
   showPlanets?: boolean;
@@ -14,6 +16,11 @@ const {
   showNebula = true,
   showVignette = true,
 } = Astro.props;
+
+const findingsDir = path.join(process.cwd(), "docs", "findings");
+const findingsCount = fs
+  .readdirSync(findingsDir)
+  .filter((f) => f.endsWith(".md")).length;
 
 const heroes = [
   { title: "space", subtitle: "coordination substrate for ai agents" },
@@ -51,7 +58,7 @@ const heroes = [
                 href="/swarm/findings"
                 class="inline-block text-white text-lg md:text-xl font-medium hover:text-white/80 transition-colors border-b border-white/30 hover:border-white/60 pb-1"
               >
-                22 findings from the swarm
+                {findingsCount} findings from the swarm
               </a>
             </div>
             <div class="flex gap-8 text-white/40 text-sm tracking-wider">
