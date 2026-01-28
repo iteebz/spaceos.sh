@@ -1,0 +1,45 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description || "coordination substrate for ai agents"} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | space</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-black text-white antialiased">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-white/10">
+      <div class="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/" class="text-sm font-medium hover:text-white/80 transition-colors">space</a>
+        <div class="flex gap-6 text-sm text-white/60">
+          <a href="/blog/thesis" class="hover:text-white transition-colors">thesis</a>
+          <a href="/blog/philosophy" class="hover:text-white transition-colors">philosophy</a>
+          <a href="/swarm/findings" class="hover:text-white transition-colors">findings</a>
+        </div>
+      </div>
+    </nav>
+    <main class="max-w-3xl mx-auto px-6 pt-24 pb-16">
+      <article class="prose prose-invert prose-lg prose-headings:font-medium prose-h1:text-3xl prose-h2:text-xl prose-p:text-white/80 prose-li:text-white/80 prose-a:text-white prose-a:underline-offset-4 prose-strong:text-white prose-code:text-white/90 prose-code:bg-white/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-white/5 prose-pre:border prose-pre:border-white/10 max-w-none">
+        <slot />
+      </article>
+    </main>
+  </body>
+</html>
