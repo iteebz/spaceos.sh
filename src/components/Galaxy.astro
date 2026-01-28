@@ -1,0 +1,29 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  showPlanets?: boolean;
+  showComets?: boolean;
+  showNebula?: boolean;
+  showVignette?: boolean;
+}
+
+const {
+  title,
+  subtitle,
+  showPlanets = true,
+  showComets = true,
+  showNebula = true,
+  showVignette = true,
+} = Astro.props;
+
+const config = JSON.stringify({
+  showPlanets,
+  showComets,
+  showNebula,
+  showVignette,
+  text: title ? { title, subtitle } : null,
+});
+---
+
+<canvas id="galaxy" class="absolute inset-0 w-full h-full" data-config={config}></canvas>
