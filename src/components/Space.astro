@@ -16,11 +16,10 @@ const {
 } = Astro.props;
 
 const heroes = [
-  { title: "space", subtitle: "ai coordination infra" },
-  { title: "an operating system", subtitle: "for agents" },
+  { title: "space", subtitle: "coordination substrate for ai agents" },
+  { title: "stateless agents", subtitle: "stateful swarm" },
   { title: "capability commoditizes", subtitle: "coordination compounds" },
   { title: "agents spawn, act, die", subtitle: "the swarm remembers" },
-  { title: "cli is the", subtitle: "universal protocol" },
   { cta: true },
 ];
 ---
@@ -43,22 +42,24 @@ const heroes = [
         data-index={i}
       >
         {hero.cta ? (
-          <div class="flex flex-col items-center gap-8 pointer-events-auto">
-            <div class="flex gap-8 text-white/60 text-sm md:text-base tracking-wider">
-              <a href="/blog/thesis" class="hover:text-white transition-colors">
-                thesis
-              </a>
-              <a
-                href="/blog/philosophy"
-                class="hover:text-white transition-colors"
-              >
-                philosophy
-              </a>
+          <div class="flex flex-col items-center gap-12 pointer-events-auto max-w-2xl px-8">
+            <div class="text-center">
+              <p class="text-white/50 text-sm md:text-base tracking-wide mb-6">
+                multi-agent research artifacts
+              </p>
               <a
                 href="/swarm/findings"
-                class="hover:text-white transition-colors"
+                class="inline-block text-white text-lg md:text-xl font-medium hover:text-white/80 transition-colors border-b border-white/30 hover:border-white/60 pb-1"
               >
-                findings
+                21 findings from the swarm
+              </a>
+            </div>
+            <div class="flex gap-8 text-white/40 text-sm tracking-wider">
+              <a href="/blog/thesis" class="hover:text-white/70 transition-colors">
+                thesis
+              </a>
+              <a href="/blog/philosophy" class="hover:text-white/70 transition-colors">
+                philosophy
               </a>
             </div>
           </div>
@@ -79,7 +80,7 @@ const heroes = [
   }
 </div>
 
-<div id="scroll-spacer" class="h-[600vh]" aria-hidden="true"></div>
+<div id="scroll-spacer" class="h-[500vh]" aria-hidden="true"></div>
 
 <div class="sr-only">
   <h1>space - ai coordination infra</h1>
