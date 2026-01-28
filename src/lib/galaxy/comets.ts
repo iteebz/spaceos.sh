@@ -1,4 +1,4 @@
-import type { GalaxyState, Comet } from './types'
+import type { GalaxyState, Comet } from "./types";
 
 const COMET = {
   spawnOffset: 10,
@@ -16,10 +16,10 @@ const COMET = {
   lifeRange: 40,
   fadeStart: 0.7,
   lineWidth: 1.5,
-} as const
+} as const;
 
 export const spawnComet = (state: GalaxyState) => {
-  const fromTop = Math.random() < 0.5
+  const fromTop = Math.random() < 0.5;
   const comet: Comet = fromTop
     ? {
         x: Math.random() * state.width,
@@ -40,28 +40,35 @@ export const spawnComet = (state: GalaxyState) => {
         opacity: COMET.opacityBase + Math.random() * COMET.opacityRange,
         life: 0,
         maxLife: COMET.lifeBase + Math.random() * COMET.lifeRange,
-      }
-  state.comets.push(comet)
-}
+      };
+  state.comets.push(comet);
+};
 
-export const drawComets = (ctx: CanvasRenderingContext2D, state: GalaxyState, alpha: number) => {
-  state.comets = state.comets.filter((c) => c.life < c.maxLife)
+export const drawComets = (
+  ctx: CanvasRenderingContext2D,
+  state: GalaxyState,
+  alpha: number,
+) => {
+  state.comets = state.comets.filter((c) => c.life < c.maxLife);
   for (const c of state.comets) {
-    c.x += Math.cos(c.angle) * c.speed
-    c.y += Math.sin(c.angle) * c.speed
-    c.life++
-    const progress = c.life / c.maxLife
-    const fade = progress > COMET.fadeStart ? 1 - (progress - COMET.fadeStart) / (1 - COMET.fadeStart) : 1
-    const tailX = c.x - Math.cos(c.angle) * c.length
-    const tailY = c.y - Math.sin(c.angle) * c.length
-    const grad = ctx.createLinearGradient(tailX, tailY, c.x, c.y)
-    grad.addColorStop(0, 'rgba(255,255,255,0)')
-    grad.addColorStop(1, `rgba(255,255,255,${c.opacity * fade * alpha})`)
-    ctx.strokeStyle = grad
-    ctx.lineWidth = COMET.lineWidth
-    ctx.beginPath()
-    ctx.moveTo(tailX, tailY)
-    ctx.lineTo(c.x, c.y)
-    ctx.stroke()
+    c.x += Math.cos(c.angle) * c.speed;
+    c.y += Math.sin(c.angle) * c.speed;
+    c.life++;
+    const progress = c.life / c.maxLife;
+    const fade =
+      progress > COMET.fadeStart
+        ? 1 - (progress - COMET.fadeStart) / (1 - COMET.fadeStart)
+        : 1;
+    const tailX = c.x - Math.cos(c.angle) * c.length;
+    const tailY = c.y - Math.sin(c.angle) * c.length;
+    const grad = ctx.createLinearGradient(tailX, tailY, c.x, c.y);
+    grad.addColorStop(0, "rgba(255,255,255,0)");
+    grad.addColorStop(1, `rgba(255,255,255,${c.opacity * fade * alpha})`);
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = COMET.lineWidth;
+    ctx.beginPath();
+    ctx.moveTo(tailX, tailY);
+    ctx.lineTo(c.x, c.y);
+    ctx.stroke();
   }
-}
+};

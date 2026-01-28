@@ -1,1 +1,1 @@
-export { initGalaxy, type GalaxyConfig, type GalaxyController } from './init'
+export { initGalaxy, type GalaxyConfig, type GalaxyController } from "./init";

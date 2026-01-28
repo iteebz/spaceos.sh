@@ -25,6 +25,7 @@ export default [
         HTMLCanvasElement: 'readonly',
         CanvasRenderingContext2D: 'readonly',
         MouseEvent: 'readonly',
+        TouchEvent: 'readonly',
       },
     },
     plugins: {

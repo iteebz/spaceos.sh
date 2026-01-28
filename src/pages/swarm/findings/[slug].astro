@@ -6,9 +6,9 @@ import { marked } from "marked";
 
 export function getStaticPaths() {
   const findingsDir = path.join(process.cwd(), "docs", "findings");
-  const files = fs.readdirSync(findingsDir).filter(f => f.endsWith(".md"));
-  
-  return files.map(file => ({
+  const files = fs.readdirSync(findingsDir).filter((f) => f.endsWith(".md"));
+
+  return files.map((file) => ({
     params: { slug: file.replace(".md", "") },
   }));
 }
@@ -25,7 +25,11 @@ const html = await marked(body);
 
 <Prose title={title} description="Swarm research finding">
   <nav class="mb-8">
-    <a href="/swarm/findings" class="text-white/60 hover:text-white text-sm no-underline">&larr; All findings</a>
+    <a
+      href="/swarm/findings"
+      class="text-white/60 hover:text-white text-sm no-underline"
+      >&larr; All findings</a
+    >
   </nav>
   <h1>{title}</h1>
   <Fragment set:html={html} />

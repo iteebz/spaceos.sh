@@ -13,5 +13,5 @@ const body = lines.slice(1).join("\n");
 
 <Prose title={title} description="Design rationale for Space-OS">
   <h1>{title}</h1>
-  <Fragment set:html={await import("marked").then(m => m.marked(body))} />
+  <Fragment set:html={await import("marked").then((m) => m.marked(body))} />
 </Prose>

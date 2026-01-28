@@ -11,7 +11,10 @@ const title = lines[0].replace(/^#\s*/, "");
 const body = lines.slice(1).join("\n");
 ---
 
-<Prose title={title} description="Falsifiable claims about multi-agent coordination">
+<Prose
+  title={title}
+  description="Falsifiable claims about multi-agent coordination"
+>
   <h1>{title}</h1>
-  <Fragment set:html={await import("marked").then(m => m.marked(body))} />
+  <Fragment set:html={await import("marked").then((m) => m.marked(body))} />
 </Prose>
