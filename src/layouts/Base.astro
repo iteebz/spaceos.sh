@@ -6,6 +6,8 @@ interface Props {
 }
 
 const { title } = Astro.props;
+const description = "coordination substrate for ai agents";
+const url = "https://spaceos.sh";
 ---
 
 <!doctype html>
@@ -13,9 +15,17 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="coordination substrate for ai agents" />
+    <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title} | space</title>
+
+    <meta property="og:title" content={`${title} | space`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={`${title} | space`} />
+    <meta name="twitter:description" content={description} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
