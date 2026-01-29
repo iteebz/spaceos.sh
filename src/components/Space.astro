@@ -24,6 +24,10 @@ const findingsCount = fs
 
 const heroes = [
   { title: "space", subtitle: "ai coordination substrate", isHero: true },
+  {
+    title: "governance, not orchestration",
+    subtitle: "trust agents working together",
+  },
   { title: "stateless agents", subtitle: "stateful swarm" },
   { title: "capability commoditizes", subtitle: "coordination compounds" },
   { title: "agents spawn, act, die", subtitle: "the swarm remembers" },
@@ -50,7 +54,10 @@ const heroes = [
       >
         {hero.cta ? (
           <div class="flex flex-col items-center gap-12 pointer-events-auto max-w-2xl px-8">
-            <div id="live-stats" class="flex gap-6 text-white/40 text-xs tracking-wider font-mono opacity-0 transition-opacity duration-500"></div>
+            <div
+              id="live-stats"
+              class="flex gap-6 text-white/40 text-xs tracking-wider font-mono opacity-0 transition-opacity duration-500"
+            />
             <div class="text-center">
               <p class="text-white/50 text-sm md:text-base tracking-wide mb-6">
                 multi-agent research artifacts
@@ -85,17 +92,25 @@ const heroes = [
           </div>
         ) : (
           <div class="text-center px-8">
-            <h2 class:list={[
-              "font-semibold text-white/90 tracking-tight leading-tight",
-              hero.isHero ? "text-4xl md:text-6xl lg:text-7xl" : "text-2xl md:text-4xl lg:text-5xl"
-            ]}>
+            <h2
+              class:list={[
+                "font-semibold text-white/90 tracking-tight leading-tight",
+                hero.isHero
+                  ? "text-4xl md:text-6xl lg:text-7xl"
+                  : "text-2xl md:text-4xl lg:text-5xl",
+              ]}
+            >
               {hero.title}
             </h2>
             {hero.subtitle && (
-              <p class:list={[
-                "text-white/40 mt-2 md:mt-3 tracking-wide",
-                hero.isHero ? "text-lg md:text-2xl lg:text-3xl" : "text-xl md:text-3xl lg:text-4xl"
-              ]}>
+              <p
+                class:list={[
+                  "text-white/40 mt-2 md:mt-3 tracking-wide",
+                  hero.isHero
+                    ? "text-lg md:text-2xl lg:text-3xl"
+                    : "text-xl md:text-3xl lg:text-4xl",
+                ]}
+              >
                 {hero.subtitle}
               </p>
             )}
