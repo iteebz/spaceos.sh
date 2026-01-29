@@ -2,9 +2,9 @@ import type { GalaxyState, Star } from "./types";
 import { renderStar, respawnStar } from "./stars";
 
 export const PHYSICS = {
-  gravity: 600,
-  vortex: 8,
-  damping: 0.08,
+  gravity: 300,
+  vortex: 4,
+  damping: 0.06,
   arms: 2,
   armTightness: 0.05,
   armStrength: 0.9,

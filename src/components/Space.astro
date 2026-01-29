@@ -23,7 +23,7 @@ const findingsCount = fs
   .filter((f) => f.endsWith(".md")).length;
 
 const heroes = [
-  { title: "space", subtitle: "coordination substrate for ai agents" },
+  { title: "space", subtitle: "ai coordination substrate", isHero: true },
   { title: "stateless agents", subtitle: "stateful swarm" },
   { title: "capability commoditizes", subtitle: "coordination compounds" },
   { title: "agents spawn, act, die", subtitle: "the swarm remembers" },
@@ -79,11 +79,17 @@ const heroes = [
           </div>
         ) : (
           <div class="text-center px-8">
-            <h2 class="text-3xl md:text-5xl lg:text-6xl font-semibold text-white/90 tracking-tight leading-tight">
+            <h2 class:list={[
+              "font-semibold text-white/90 tracking-tight leading-tight",
+              hero.isHero ? "text-4xl md:text-6xl lg:text-7xl" : "text-2xl md:text-4xl lg:text-5xl"
+            ]}>
               {hero.title}
             </h2>
             {hero.subtitle && (
-              <p class="text-xl md:text-3xl lg:text-4xl text-white/50 mt-2 md:mt-4 tracking-wide">
+              <p class:list={[
+                "text-white/40 mt-2 md:mt-3 tracking-wide",
+                hero.isHero ? "text-lg md:text-2xl lg:text-3xl" : "text-xl md:text-3xl lg:text-4xl"
+              ]}>
                 {hero.subtitle}
               </p>
             )}
@@ -137,9 +143,10 @@ const heroes = [
 
       sections.forEach((el, i) => {
         if (i === currentIndex) {
+          const isLast = i === heroCount - 1;
           const fadeIn = Math.min(1, sectionFraction * 5);
           const fadeOut =
-            sectionFraction > 0.8 ? (sectionFraction - 0.8) * 5 : 0;
+            !isLast && sectionFraction > 0.8 ? (sectionFraction - 0.8) * 5 : 0;
           const opacity =
             i === 0 && sectionFraction < 0.2
               ? 1

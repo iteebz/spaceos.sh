@@ -183,8 +183,17 @@ export const initGalaxy = (
     state.targetMouseY = y - rect.top;
     state.gravityActive = true;
   };
-  const handleMouseMove = (e: MouseEvent) =>
-    updatePointer(e.clientX, e.clientY);
+  const handleMouseMove = (e: MouseEvent) => {
+    const rect = canvas.getBoundingClientRect();
+    if (
+      e.clientX >= rect.left &&
+      e.clientX <= rect.right &&
+      e.clientY >= rect.top &&
+      e.clientY <= rect.bottom
+    ) {
+      updatePointer(e.clientX, e.clientY);
+    }
+  };
   const handleTouchMove = (e: TouchEvent) => {
     if (e.touches.length > 0) {
       updatePointer(e.touches[0].clientX, e.touches[0].clientY);
@@ -208,6 +217,17 @@ export const initGalaxy = (
       animationFrameId = requestAnimationFrame(animate);
     }
   };
+  const handleWindowBlur = () => {
+    isPaused = true;
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+  };
+  const handleWindowFocus = () => {
+    if (isPaused) {
+      isPaused = false;
+      lastTime = performance.now();
+      animationFrameId = requestAnimationFrame(animate);
+    }
+  };
 
   setCanvasSize();
   state.targetMouseX = state.centerX;
@@ -216,7 +236,9 @@ export const initGalaxy = (
   state.mouseY = state.centerY;
 
   window.addEventListener("resize", handleResize);
-  canvas.addEventListener("mousemove", handleMouseMove);
+  window.addEventListener("blur", handleWindowBlur);
+  window.addEventListener("focus", handleWindowFocus);
+  document.addEventListener("mousemove", handleMouseMove);
   canvas.addEventListener("mouseleave", handlePointerLeave);
   canvas.addEventListener("touchstart", handleTouchStart, { passive: true });
   canvas.addEventListener("touchmove", handleTouchMove, { passive: true });
@@ -230,7 +252,9 @@ export const initGalaxy = (
       isPaused = true;
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", handleResize);
-      canvas.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("blur", handleWindowBlur);
+      window.removeEventListener("focus", handleWindowFocus);
+      document.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("mouseleave", handlePointerLeave);
       canvas.removeEventListener("touchstart", handleTouchStart);
       canvas.removeEventListener("touchmove", handleTouchMove);
