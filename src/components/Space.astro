@@ -53,13 +53,58 @@ const heroes = [
         data-index={i}
       >
         {hero.cta ? (
-          <div class="flex flex-col items-center gap-12 pointer-events-auto max-w-2xl px-8">
+          <div class="flex flex-col items-center gap-10 pointer-events-auto max-w-3xl px-8">
             <div
               id="live-stats"
-              class="flex gap-6 text-white/40 text-xs tracking-wider font-mono opacity-0 transition-opacity duration-500"
-            />
+              class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 opacity-0 transition-opacity duration-700"
+            >
+              <div class="text-center">
+                <div
+                  class="stat-value text-2xl md:text-3xl font-light text-white/90 tabular-nums"
+                  data-key="total_spawns"
+                >
+                  —
+                </div>
+                <div class="text-xs text-white/40 tracking-wider mt-1">
+                  spawns
+                </div>
+              </div>
+              <div class="text-center">
+                <div
+                  class="stat-value text-2xl md:text-3xl font-light text-white/90 tabular-nums"
+                  data-key="insights"
+                >
+                  —
+                </div>
+                <div class="text-xs text-white/40 tracking-wider mt-1">
+                  insights
+                </div>
+              </div>
+              <div class="text-center">
+                <div
+                  class="stat-value text-2xl md:text-3xl font-light text-white/90 tabular-nums"
+                  data-key="commits"
+                >
+                  —
+                </div>
+                <div class="text-xs text-white/40 tracking-wider mt-1">
+                  commits
+                </div>
+              </div>
+              <div class="text-center">
+                <div
+                  class="stat-value text-2xl md:text-3xl font-light text-white/90 tabular-nums"
+                  data-key="code_loc"
+                >
+                  —
+                </div>
+                <div class="text-xs text-white/40 tracking-wider mt-1">
+                  lines of code
+                </div>
+              </div>
+            </div>
             <div class="text-center">
-              <p class="text-white/50 text-sm md:text-base tracking-wide mb-6">
+              <p class="text-white/40 text-sm tracking-wide mb-4">
                 multi-agent research artifacts
               </p>
               <a
@@ -69,7 +114,7 @@ const heroes = [
                 {findingsCount} findings from the swarm
               </a>
             </div>
-            <div class="flex gap-8 text-white/40 text-sm tracking-wider">
+            <div class="flex flex-wrap justify-center gap-6 md:gap-8 text-white/40 text-sm tracking-wider">
               <a
                 href="/docs/thesis"
                 class="hover:text-white/70 transition-colors"
@@ -189,18 +234,40 @@ const heroes = [
     { once: true },
   );
 
+  function animateValue(el: HTMLElement, target: number, duration = 1200) {
+    const start = 0;
+    const startTime = performance.now();
+    const format = (n: number) => n.toLocaleString();
+
+    function update(currentTime: number) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(start + (target - start) * eased);
+      el.textContent = format(current);
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
   fetch("/stats.json")
     .then((r) => (r.ok ? r.json() : null))
     .then((stats) => {
       if (!stats) return;
-      const el = document.getElementById("live-stats");
-      if (!el) return;
-      el.innerHTML = [
-        `<span>${stats.spawns_24h} spawns/24h</span>`,
-        `<span>${stats.insights.toLocaleString()} insights</span>`,
-        `<span>${stats.decisions} decisions</span>`,
-      ].join("");
-      el.style.opacity = "1";
+      const container = document.getElementById("live-stats");
+      if (!container) return;
+
+      const elements = container.querySelectorAll<HTMLElement>(".stat-value");
+      elements.forEach((el) => {
+        const key = el.dataset.key;
+        if (!key) return;
+        const value = stats[key] ?? stats.spawns_24h;
+        if (typeof value === "number") {
+          animateValue(el, value);
+        }
+      });
+
+      container.style.opacity = "1";
     })
     .catch(() => {});
 </script>
