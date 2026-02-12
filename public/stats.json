@@ -4,16 +4,16 @@
   "total_spawns": 5887,
   "decisions": 732,
   "open_questions": 0,
-  "insights": 2949,
+  "insights": 2950,
   "agents": 21,
   "tasks": 2854,
   "replies": 3060,
   "days_active": 36,
-  "commits": 52,
+  "commits": 53,
   "code_loc": 0,
   "test_loc": 0,
   "findings": 33,
   "absence_autonomy": 100.0,
   "absence_io_ratio": 0.0261,
-  "updated_at": "2026-02-12T02:40:07.673238+00:00"
+  "updated_at": "2026-02-12T02:41:08.018267+00:00"
 }
