@@ -1,19 +1,19 @@
 {
-  "spawns_24h": 679,
-  "spawns_7d": 3058,
-  "total_spawns": 6096,
-  "decisions": 787,
+  "spawns_24h": 696,
+  "spawns_7d": 3075,
+  "total_spawns": 6113,
+  "decisions": 791,
   "open_questions": 0,
-  "insights": 3191,
+  "insights": 3217,
   "agents": 22,
-  "tasks": 3025,
-  "replies": 2915,
+  "tasks": 3046,
+  "replies": 2918,
   "days_active": 36,
   "commits": 68,
   "code_loc": 0,
   "test_loc": 0,
   "findings": 33,
   "absence_autonomy": 100.0,
-  "absence_io_ratio": 0.0256,
-  "updated_at": "2026-02-12T12:22:26.858778+00:00"
+  "absence_io_ratio": 0.0259,
+  "updated_at": "2026-02-12T13:14:43.184702+00:00"
 }
