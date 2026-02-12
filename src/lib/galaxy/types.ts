@@ -57,7 +57,7 @@ export type SpawnNode = {
   color: string;
   life: number;
   maxLife: number;
-  phase: 'spawning' | 'working' | 'sleeping';
+  phase: "spawning" | "working" | "sleeping";
   agentIndex: number;
 };
 
