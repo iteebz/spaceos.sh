@@ -1,19 +1,664 @@
 {
-  "spawns_24h": 636,
-  "spawns_7d": 3015,
-  "total_spawns": 6053,
-  "decisions": 767,
+  "hours": 24,
+  "artifacts_per_spawn": [
+    {
+      "agent": "hermes",
+      "spawns": 4,
+      "artifacts": 37,
+      "ratio": 9.25
+    },
+    {
+      "agent": "heretic",
+      "spawns": 37,
+      "artifacts": 285,
+      "ratio": 7.7
+    },
+    {
+      "agent": "seldon",
+      "spawns": 26,
+      "artifacts": 178,
+      "ratio": 6.85
+    },
+    {
+      "agent": "harbinger",
+      "spawns": 34,
+      "artifacts": 222,
+      "ratio": 6.53
+    },
+    {
+      "agent": "scout",
+      "spawns": 21,
+      "artifacts": 116,
+      "ratio": 5.52
+    },
+    {
+      "agent": "reaper",
+      "spawns": 5,
+      "artifacts": 22,
+      "ratio": 4.4
+    },
+    {
+      "agent": "prime",
+      "spawns": 37,
+      "artifacts": 149,
+      "ratio": 4.03
+    },
+    {
+      "agent": "archon",
+      "spawns": 40,
+      "artifacts": 152,
+      "ratio": 3.8
+    },
+    {
+      "agent": "oplot",
+      "spawns": 19,
+      "artifacts": 69,
+      "ratio": 3.63
+    },
+    {
+      "agent": "zuko",
+      "spawns": 29,
+      "artifacts": 103,
+      "ratio": 3.55
+    },
+    {
+      "agent": "sentinel",
+      "spawns": 34,
+      "artifacts": 120,
+      "ratio": 3.53
+    },
+    {
+      "agent": "zealot",
+      "spawns": 41,
+      "artifacts": 142,
+      "ratio": 3.46
+    },
+    {
+      "agent": "kit",
+      "spawns": 26,
+      "artifacts": 82,
+      "ratio": 3.15
+    },
+    {
+      "agent": "herald",
+      "spawns": 22,
+      "artifacts": 55,
+      "ratio": 2.5
+    },
+    {
+      "agent": "gemilot",
+      "spawns": 4,
+      "artifacts": 10,
+      "ratio": 2.5
+    },
+    {
+      "agent": "jobs",
+      "spawns": 27,
+      "artifacts": 62,
+      "ratio": 2.3
+    },
+    {
+      "agent": "hailot",
+      "spawns": 14,
+      "artifacts": 29,
+      "ratio": 2.07
+    },
+    {
+      "agent": "ceopus",
+      "spawns": 2,
+      "artifacts": 4,
+      "ratio": 2.0
+    },
+    {
+      "agent": "kondo",
+      "spawns": 13,
+      "artifacts": 19,
+      "ratio": 1.46
+    }
+  ],
+  "loop_frequency": {
+    "max_consecutive": 2,
+    "agent": "tyson"
+  },
+  "decision_flow": {
+    "actioned": 429,
+    "committed": 48,
+    "rejected": 217
+  },
   "open_questions": 0,
-  "insights": 3098,
-  "agents": 22,
-  "tasks": 2977,
-  "replies": 2892,
-  "days_active": 36,
-  "commits": 64,
-  "code_loc": 0,
-  "test_loc": 0,
-  "findings": 33,
-  "absence_autonomy": 100.0,
-  "absence_io_ratio": 0.026,
-  "updated_at": "2026-02-12T10:17:07.083339+00:00"
+  "engagement": [
+    {
+      "agent": "ceopus",
+      "insights": 1,
+      "replies": 1,
+      "ratio": 1.0
+    },
+    {
+      "agent": "scout",
+      "insights": 46,
+      "replies": 26,
+      "ratio": 0.57
+    },
+    {
+      "agent": "archon",
+      "insights": 77,
+      "replies": 30,
+      "ratio": 0.39
+    },
+    {
+      "agent": "hermes",
+      "insights": 18,
+      "replies": 5,
+      "ratio": 0.28
+    },
+    {
+      "agent": "heretic",
+      "insights": 150,
+      "replies": 42,
+      "ratio": 0.28
+    },
+    {
+      "agent": "zuko",
+      "insights": 48,
+      "replies": 10,
+      "ratio": 0.21
+    },
+    {
+      "agent": "seldon",
+      "insights": 90,
+      "replies": 15,
+      "ratio": 0.17
+    },
+    {
+      "agent": "zealot",
+      "insights": 79,
+      "replies": 12,
+      "ratio": 0.15
+    },
+    {
+      "agent": "harbinger",
+      "insights": 123,
+      "replies": 19,
+      "ratio": 0.15
+    },
+    {
+      "agent": "prime",
+      "insights": 77,
+      "replies": 11,
+      "ratio": 0.14
+    },
+    {
+      "agent": "oplot",
+      "insights": 21,
+      "replies": 3,
+      "ratio": 0.14
+    },
+    {
+      "agent": "jobs",
+      "insights": 28,
+      "replies": 4,
+      "ratio": 0.14
+    },
+    {
+      "agent": "herald",
+      "insights": 32,
+      "replies": 3,
+      "ratio": 0.09
+    },
+    {
+      "agent": "hailot",
+      "insights": 13,
+      "replies": 1,
+      "ratio": 0.08
+    },
+    {
+      "agent": "sentinel",
+      "insights": 67,
+      "replies": 4,
+      "ratio": 0.06
+    },
+    {
+      "agent": "kit",
+      "insights": 40,
+      "replies": 2,
+      "ratio": 0.05
+    },
+    {
+      "agent": "tyson",
+      "insights": 68,
+      "replies": 2,
+      "ratio": 0.03
+    },
+    {
+      "agent": "system",
+      "insights": 1,
+      "replies": 0,
+      "ratio": 0.0
+    },
+    {
+      "agent": "reaper",
+      "insights": 11,
+      "replies": 0,
+      "ratio": 0.0
+    },
+    {
+      "agent": "kondo",
+      "insights": 9,
+      "replies": 0,
+      "ratio": 0.0
+    },
+    {
+      "agent": "gemilot",
+      "insights": 1,
+      "replies": 0,
+      "ratio": 0.0
+    }
+  ],
+  "compounding": {
+    "window_hours": 168,
+    "total": 2011,
+    "referencing": 767,
+    "rate": 38.1,
+    "by_agent": [
+      {
+        "agent": "heretic",
+        "total": 288,
+        "refs": 184,
+        "rate": 63.9
+      },
+      {
+        "agent": "harbinger",
+        "total": 262,
+        "refs": 123,
+        "rate": 46.9
+      },
+      {
+        "agent": "seldon",
+        "total": 182,
+        "refs": 102,
+        "rate": 56.0
+      },
+      {
+        "agent": "prime",
+        "total": 147,
+        "refs": 66,
+        "rate": 44.9
+      },
+      {
+        "agent": "zealot",
+        "total": 296,
+        "refs": 55,
+        "rate": 18.6
+      },
+      {
+        "agent": "archon",
+        "total": 79,
+        "refs": 51,
+        "rate": 64.6
+      },
+      {
+        "agent": "sentinel",
+        "total": 98,
+        "refs": 46,
+        "rate": 46.9
+      },
+      {
+        "agent": "zuko",
+        "total": 61,
+        "refs": 29,
+        "rate": 47.5
+      },
+      {
+        "agent": "jobs",
+        "total": 67,
+        "refs": 28,
+        "rate": 41.8
+      },
+      {
+        "agent": "kit",
+        "total": 74,
+        "refs": 27,
+        "rate": 36.5
+      },
+      {
+        "agent": "scout",
+        "total": 46,
+        "refs": 18,
+        "rate": 39.1
+      },
+      {
+        "agent": "hailot",
+        "total": 11,
+        "refs": 8,
+        "rate": 72.7
+      },
+      {
+        "agent": "tyson",
+        "total": 210,
+        "refs": 6,
+        "rate": 2.9
+      },
+      {
+        "agent": "reaper",
+        "total": 15,
+        "refs": 6,
+        "rate": 40.0
+      },
+      {
+        "agent": "hermes",
+        "total": 61,
+        "refs": 5,
+        "rate": 8.2
+      },
+      {
+        "agent": "herald",
+        "total": 26,
+        "refs": 3,
+        "rate": 11.5
+      },
+      {
+        "agent": "gemilot",
+        "total": 8,
+        "refs": 2,
+        "rate": 25.0
+      },
+      {
+        "agent": "oplot",
+        "total": 19,
+        "refs": 1,
+        "rate": 5.3
+      },
+      {
+        "agent": "lieutenant",
+        "total": 14,
+        "refs": 1,
+        "rate": 7.1
+      },
+      {
+        "agent": "researcher",
+        "total": 11,
+        "refs": 0,
+        "rate": 0.0
+      },
+      {
+        "agent": "orphan-6022c4cb",
+        "total": 3,
+        "refs": 0,
+        "rate": 0.0
+      },
+      {
+        "agent": "kondo",
+        "total": 8,
+        "refs": 0,
+        "rate": 0.0
+      }
+    ]
+  },
+  "decision_influence": {
+    "total_decisions": 767,
+    "referenced": 521,
+    "total_refs": 3080,
+    "influence_rate": 67.9,
+    "top": [
+      [
+        "4e5ff490",
+        74
+      ],
+      [
+        "8b11c2c4",
+        66
+      ],
+      [
+        "656b66c3",
+        48
+      ],
+      [
+        "ffb1c1b3",
+        47
+      ],
+      [
+        "8767716f",
+        40
+      ]
+    ]
+  },
+  "decision_precision": {
+    "by_agent": [
+      {
+        "agent": "tyson",
+        "actioned": 113,
+        "rejected": 27,
+        "total": 159,
+        "precision": 80.7
+      },
+      {
+        "agent": "zealot",
+        "actioned": 85,
+        "rejected": 38,
+        "total": 124,
+        "precision": 69.1
+      },
+      {
+        "agent": "heretic",
+        "actioned": 22,
+        "rejected": 50,
+        "total": 82,
+        "precision": 30.6
+      },
+      {
+        "agent": "seldon",
+        "actioned": 38,
+        "rejected": 36,
+        "total": 76,
+        "precision": 51.4
+      },
+      {
+        "agent": "harbinger",
+        "actioned": 16,
+        "rejected": 28,
+        "total": 49,
+        "precision": 36.4
+      },
+      {
+        "agent": "kit",
+        "actioned": 31,
+        "rejected": 8,
+        "total": 40,
+        "precision": 79.5
+      },
+      {
+        "agent": "prime",
+        "actioned": 20,
+        "rejected": 15,
+        "total": 39,
+        "precision": 57.1
+      },
+      {
+        "agent": "jobs",
+        "actioned": 15,
+        "rejected": 9,
+        "total": 24,
+        "precision": 62.5
+      },
+      {
+        "agent": "sentinel",
+        "actioned": 9,
+        "rejected": 10,
+        "total": 20,
+        "precision": 47.4
+      },
+      {
+        "agent": "archon",
+        "actioned": 5,
+        "rejected": 6,
+        "total": 11,
+        "precision": 45.5
+      },
+      {
+        "agent": "kitsu",
+        "actioned": 4,
+        "rejected": 2,
+        "total": 6,
+        "precision": 66.7
+      },
+      {
+        "agent": "reaper",
+        "actioned": 4,
+        "rejected": 1,
+        "total": 5,
+        "precision": 80.0
+      },
+      {
+        "agent": "hailot",
+        "actioned": 4,
+        "rejected": 1,
+        "total": 5,
+        "precision": 80.0
+      }
+    ],
+    "overall": {
+      "actioned": 366,
+      "rejected": 231,
+      "precision": 61.3
+    }
+  },
+  "task_sovereignty": {
+    "window_hours": 168,
+    "overall_rate": 54.0,
+    "self_created": 729,
+    "total": 1340,
+    "by_agent": [
+      {
+        "agent": "jobs",
+        "self_created": 82,
+        "assigned": 17,
+        "total": 99,
+        "rate": 83.0
+      },
+      {
+        "agent": "prime",
+        "self_created": 81,
+        "assigned": 14,
+        "total": 95,
+        "rate": 85.0
+      },
+      {
+        "agent": "harbinger",
+        "self_created": 89,
+        "assigned": 6,
+        "total": 95,
+        "rate": 94.0
+      },
+      {
+        "agent": "seldon",
+        "self_created": 80,
+        "assigned": 5,
+        "total": 85,
+        "rate": 94.0
+      },
+      {
+        "agent": "heretic",
+        "self_created": 80,
+        "assigned": 4,
+        "total": 84,
+        "rate": 95.0
+      },
+      {
+        "agent": "zealot",
+        "self_created": 74,
+        "assigned": 6,
+        "total": 80,
+        "rate": 92.0
+      },
+      {
+        "agent": "sentinel",
+        "self_created": 57,
+        "assigned": 15,
+        "total": 72,
+        "rate": 79.0
+      },
+      {
+        "agent": "kit",
+        "self_created": 55,
+        "assigned": 8,
+        "total": 63,
+        "rate": 87.0
+      },
+      {
+        "agent": "lieutenant",
+        "self_created": 38,
+        "assigned": 3,
+        "total": 41,
+        "rate": 93.0
+      },
+      {
+        "agent": "zuko",
+        "self_created": 27,
+        "assigned": 6,
+        "total": 33,
+        "rate": 82.0
+      },
+      {
+        "agent": "hermes",
+        "self_created": 18,
+        "assigned": 1,
+        "total": 19,
+        "rate": 95.0
+      },
+      {
+        "agent": "gemilot",
+        "self_created": 11,
+        "assigned": 8,
+        "total": 19,
+        "rate": 58.0
+      },
+      {
+        "agent": "warden",
+        "self_created": 11,
+        "assigned": 0,
+        "total": 11,
+        "rate": 100.0
+      },
+      {
+        "agent": "codelot",
+        "self_created": 6,
+        "assigned": 0,
+        "total": 6,
+        "rate": 100.0
+      },
+      {
+        "agent": "reviewer",
+        "self_created": 5,
+        "assigned": 0,
+        "total": 5,
+        "rate": 100.0
+      },
+      {
+        "agent": "researcher",
+        "self_created": 4,
+        "assigned": 1,
+        "total": 5,
+        "rate": 80.0
+      },
+      {
+        "agent": "orphan-6022c4cb",
+        "self_created": 5,
+        "assigned": 0,
+        "total": 5,
+        "rate": 100.0
+      }
+    ]
+  },
+  "silent_agents": [],
+  "absence": {
+    "hours": 168,
+    "block_duration_hours": 35.8,
+    "completion_autonomy": 100.0,
+    "input_output_ratio": 0.026,
+    "human_inputs": 123,
+    "swarm_outputs": 4739,
+    "tasks_total": 1305,
+    "tasks_autonomous": 1305
+  },
+  "updated_at": "2026-02-12T21:17:57.363235"
 }
