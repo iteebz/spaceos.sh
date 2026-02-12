@@ -4,7 +4,7 @@
   "total_spawns": 6077,
   "decisions": 779,
   "open_questions": 0,
-  "insights": 3151,
+  "insights": 3156,
   "agents": 22,
   "tasks": 3003,
   "replies": 2902,
@@ -15,5 +15,5 @@
   "findings": 33,
   "absence_autonomy": 100.0,
   "absence_io_ratio": 0.0256,
-  "updated_at": "2026-02-12T11:41:50.767577+00:00"
+  "updated_at": "2026-02-12T11:43:55.204024+00:00"
 }
