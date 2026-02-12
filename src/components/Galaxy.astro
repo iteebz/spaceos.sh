@@ -6,6 +6,7 @@ interface Props {
   showComets?: boolean;
   showNebula?: boolean;
   showVignette?: boolean;
+  showSpawns?: boolean;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   showComets = true,
   showNebula = true,
   showVignette = true,
+  showSpawns = false,
 } = Astro.props;
 
 const config = JSON.stringify({
@@ -22,6 +24,7 @@ const config = JSON.stringify({
   showComets,
   showNebula,
   showVignette,
+  showSpawns,
   text: title ? { title, subtitle } : null,
 });
 ---

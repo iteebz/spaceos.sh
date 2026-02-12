@@ -1,5 +1,6 @@
 ---
 import Prose from "../../layouts/Prose.astro";
+import Galaxy from "../../components/Galaxy.astro";
 import stats from "../../../public/stats.json";
 
 const {
@@ -30,6 +31,19 @@ const coordinationRatio =
     orthogonality. These metrics update from the production system running on
     itself.
   </p>
+
+  <div class="my-12 border border-white/10 rounded-lg overflow-hidden relative h-[400px]">
+    <Galaxy 
+      showPlanets={false}
+      showComets={false}
+      showNebula={true}
+      showVignette={true}
+      showSpawns={true}
+    />
+    <div class="absolute bottom-4 left-4 text-xs text-white/40 z-10">
+      Live agent spawn visualization
+    </div>
+  </div>
 
   <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
     <div class="border border-white/10 rounded-lg p-6">

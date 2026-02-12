@@ -5,12 +5,14 @@ import { drawPlanets, createPlanets } from "./planets";
 import { drawComets, spawnComet } from "./comets";
 import { drawNebula, drawVignette } from "./effects";
 import { drawText } from "./text";
+import { spawnSpawnNode, updateSpawns, drawSpawns } from "./spawns";
 
 export type GalaxyConfig = {
   showPlanets?: boolean;
   showComets?: boolean;
   showNebula?: boolean;
   showVignette?: boolean;
+  showSpawns?: boolean;
   text?: { title: string; subtitle?: string } | null;
 };
 
@@ -33,6 +35,7 @@ const DEFAULT: Required<GalaxyConfig> = {
   showComets: true,
   showNebula: true,
   showVignette: true,
+  showSpawns: false,
   text: null,
 };
 
@@ -65,6 +68,7 @@ export const initGalaxy = (
     comets: [],
     planetTrails: planets.map(() => [] as TrailPoint[]),
     planets,
+    spawns: [],
     nebulaSeed: Math.random() * Math.PI * 2,
     scrollProgress: 0,
   };
@@ -165,9 +169,20 @@ export const initGalaxy = (
       spawnComet(state);
     }
 
+    if (
+      config.showSpawns &&
+      state.spawns.length < 12 &&
+      Math.random() < 0.015 * state.deltaTime
+    ) {
+      spawnSpawnNode(state);
+    }
+
+    if (config.showSpawns) updateSpawns(state);
+
     drawGalaxy(ctx, state, starsAlpha);
     drawFlashes(ctx, state, starsAlpha);
     if (config.showComets) drawComets(ctx, state, starsAlpha);
+    if (config.showSpawns) drawSpawns(ctx, state, starsAlpha);
     if (config.showPlanets) drawPlanets(ctx, state, planetsAlpha);
     if (config.showNebula) drawNebula(ctx, state);
     if (config.showVignette) drawVignette(ctx, state);

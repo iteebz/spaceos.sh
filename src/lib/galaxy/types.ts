@@ -46,6 +46,21 @@ export type Planet = {
   hoverIntensity: number;
 };
 
+export type SpawnNode = {
+  x: number;
+  y: number;
+  targetX: number;
+  targetY: number;
+  vx: number;
+  vy: number;
+  size: number;
+  color: string;
+  life: number;
+  maxLife: number;
+  phase: 'spawning' | 'working' | 'sleeping';
+  agentIndex: number;
+};
+
 export type GalaxyState = {
   width: number;
   height: number;
@@ -63,6 +78,7 @@ export type GalaxyState = {
   comets: Comet[];
   planetTrails: TrailPoint[][];
   planets: Planet[];
+  spawns: SpawnNode[];
   nebulaSeed: number;
   scrollProgress: number;
 };
