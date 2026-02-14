@@ -1,6 +1,6 @@
-# space-site
+# spaceos.sh
 
-Marketing site for Space OS.
+Demo site showcasing Space OS metrics.
 
 ## Dev
 
