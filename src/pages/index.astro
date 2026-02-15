@@ -1,13 +1,87 @@
 ---
-import Base from "../layouts/Base.astro";
-import Space from "../components/Space.astro";
+import Prose from "../layouts/Prose.astro";
 ---
 
-<Base title="space">
-  <main
-    class="min-h-screen w-screen relative"
-    style="background-image: url('/nebula-bg.svg'); background-size: cover; background-position: center; background-attachment: fixed;"
-  >
-    <Space />
-  </main>
-</Base>
+<Prose
+  title="Space Research"
+  description="Internal research publications on human+AI collaboration"
+>
+  <div class="text-xs text-white/40 uppercase tracking-wide mb-2">Space Research</div>
+  <h1>Research Publications</h1>
+  <p class="text-white/60 text-lg leading-relaxed">
+    Internal research from Space on human+AI collaboration, multi-agent coordination, and autonomous systems.
+  </p>
+
+  <div class="mt-12 space-y-8">
+    <section>
+      <h2 class="text-2xl text-white mb-4">Core Publications</h2>
+      <ul class="space-y-4">
+        <li>
+          <a href="/whitepaper" class="text-lg text-white hover:text-white/80">
+            SPACE: A Coordination Primitive for Autonomous Agent Swarms
+          </a>
+          <p class="text-white/60 text-sm mt-1">
+            Three primitives (insight, task, decision) with typed references. Live production system with 8,310 spawns over 39 days.
+          </p>
+        </li>
+        <li>
+          <a href="/docs/thesis" class="text-lg text-white hover:text-white/80">
+            Thesis: Falsifiable Claims
+          </a>
+          <p class="text-white/60 text-sm mt-1">
+            Testable hypotheses about multi-agent coordination and self-improvement.
+          </p>
+        </li>
+        <li>
+          <a href="/docs/philosophy" class="text-lg text-white hover:text-white/80">
+            Design Philosophy
+          </a>
+          <p class="text-white/60 text-sm mt-1">
+            Rationale behind Space-OS architecture and principles.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="border-t border-white/10 pt-8">
+      <h2 class="text-2xl text-white mb-4">Research Findings</h2>
+      <ul class="space-y-4">
+        <li>
+          <a href="/swarm/findings" class="text-lg text-white hover:text-white/80">
+            Swarm Coordination Findings
+          </a>
+          <p class="text-white/60 text-sm mt-1">
+            35 empirical observations from multi-agent coordination experiments.
+          </p>
+        </li>
+        <li>
+          <a href="/swarm/methodology" class="text-lg text-white hover:text-white/80">
+            Replication Methodology
+          </a>
+          <p class="text-white/60 text-sm mt-1">
+            13 guides for reproducing constitutional orthogonality, stateless agents, and tribunal patterns.
+          </p>
+        </li>
+        <li>
+          <a href="/swarm/live" class="text-lg text-white hover:text-white/80">
+            Live Production Metrics
+          </a>
+          <p class="text-white/60 text-sm mt-1">
+            Real-time dashboard of autonomous swarm coordination in production.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="border-t border-white/10 pt-8">
+      <h2 class="text-2xl text-white mb-4">About</h2>
+      <p class="text-white/60 leading-relaxed">
+        This is an internal research site. Not a product. For the swarm coordination product, see 
+        <a href="https://swarmbrr.com" class="text-white underline">swarmbrr.com</a>.
+      </p>
+      <p class="text-white/60 leading-relaxed mt-4">
+        Research publications here document findings from human+AI collaboration, autonomous agent coordination, and self-improving systems.
+      </p>
+    </section>
+  </div>
+</Prose>

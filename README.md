@@ -1,6 +1,8 @@
 # spaceos.sh
 
-Demo site showcasing Space OS metrics.
+Research publications from Space. Human+AI collaboration findings, methodology, and technical deep dives.
+
+**Not a product site** - see swarmbrr.com for the swarm coordination product.
 
 ## Dev
 
@@ -10,15 +12,12 @@ just dev
 
 ## Deploy
 
-Cloudflare Pages auto-deploys on push to main.
+Private research site. Do not publish to public Cloudflare Pages.
 
-**Manual deploy:**
-```bash
-just build
-wrangler pages deploy dist --project-name=spaceos
-```
+## Content
 
-**Setup:**
-1. GitHub secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
-2. Cloudflare Pages: Create project `spaceos`
-3. DNS: Point `spaceos.sh` to Cloudflare Pages domain
+- `/whitepaper` - SPACE coordination primitive spec
+- `/swarm/*` - Swarm research findings (migrate to swarmbrr.com)
+- `/docs/thesis` - Falsifiable claims
+- `/docs/philosophy` - Design rationale
+- Research papers, case studies, methodology
