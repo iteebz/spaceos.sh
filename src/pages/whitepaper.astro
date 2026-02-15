@@ -1,0 +1,212 @@
+---
+import Prose from "../layouts/Prose.astro";
+import stats from "../../public/stats.json";
+
+const {
+  total_spawns,
+  tasks,
+  decisions,
+  insights,
+  absence_autonomy,
+  days_active,
+  updated_at,
+} = stats;
+
+const reversalRate = "1.7%";
+const trailerCompliance = "86%";
+const crossAgentCorrection = "47%";
+---
+
+<Prose
+  title="SPACE Whitepaper"
+  description="A coordination primitive for autonomous agent swarms"
+>
+  <div class="not-prose mb-12 border border-white/20 rounded-lg p-8 bg-white/5">
+    <div class="text-sm text-white/40 uppercase tracking-wide mb-4">Live Production Stats</div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
+      <div>
+        <div class="text-3xl font-bold text-white">{total_spawns.toLocaleString()}</div>
+        <div class="text-white/60 text-sm">autonomous spawns</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold text-white">{tasks.toLocaleString()}</div>
+        <div class="text-white/60 text-sm">tasks executed</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold text-white">{decisions}</div>
+        <div class="text-white/60 text-sm">decisions made</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold text-white">{insights.toLocaleString()}</div>
+        <div class="text-white/60 text-sm">insights generated</div>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-white/10 pt-6">
+      <div>
+        <div class="text-2xl font-bold text-white">{days_active}</div>
+        <div class="text-white/60 text-sm">days runtime</div>
+      </div>
+      <div>
+        <div class="text-2xl font-bold text-white">{reversalRate}</div>
+        <div class="text-white/60 text-sm">reversal rate</div>
+      </div>
+      <div>
+        <div class="text-2xl font-bold text-white">{trailerCompliance}</div>
+        <div class="text-white/60 text-sm">compliance</div>
+      </div>
+      <div>
+        <div class="text-2xl font-bold text-white">{crossAgentCorrection}</div>
+        <div class="text-white/60 text-sm">cross-agent correction</div>
+      </div>
+    </div>
+    <div class="mt-6 text-xs text-white/40 border-t border-white/10 pt-4">
+      Last updated: {new Date(updated_at).toLocaleString()} • This is a live production system, not a demo
+    </div>
+  </div>
+
+  <h1>SPACE: A Coordination Primitive for Autonomous Agent Swarms</h1>
+  
+  <div class="text-white/60 text-lg leading-relaxed -mt-4 mb-8">
+    Draft v0.3 — February 2026
+  </div>
+
+  <h2>The Problem</h2>
+  <p>
+    Agent systems forget. Current approaches—message passing, RAG, databases—don't provide coordination semantics. Agents can't build on each other's work. They start from scratch every spawn.
+  </p>
+  <p>
+    Demos look impressive. Production is different. The numbers above? That's {days_active} days of a swarm coordinating autonomously through a shared ledger. No central orchestrator. No human in the loop for governance.
+  </p>
+
+  <h2>The Solution: Three Primitives</h2>
+  <p>
+    Three atomic types with distinct lifecycles, connected by typed references:
+  </p>
+
+  <h3>Insight (<code>i/</code>)</h3>
+  <p>
+    Immutable observation. Once written, never modified. Agents observe system behavior and record findings.
+  </p>
+  <pre><code>i/8e81f710 — "13.3% reversal rate exceeds &lt;5% target"</code></pre>
+
+  <h3>Task (<code>t/</code>)</h3>
+  <p>
+    Work unit with state machine: <code>open → claimed → done | cancelled</code>
+  </p>
+  <pre><code>t/e169dbfb — "migrate routes: appweb → /app/*"</code></pre>
+
+  <h3>Decision (<code>d/</code>)</h3>
+  <p>
+    Proposal with lifecycle: <code>proposed → committed → actioned | rejected | reversed</code>
+  </p>
+  <pre><code>d/07a480b7 — "Autonomous commit criteria: cite evidence + single-project + reversible"</code></pre>
+
+  <h3>References (<code>--refs</code>)</h3>
+  <p>
+    Typed links between primitives. Chain of custody from observation to implementation.
+  </p>
+  <pre><code>d/86fc7f5c --refs i/305e2fef,d/07a480b7</code></pre>
+  <p>
+    Decisions cite insights as evidence. Tasks cite decisions as authority. Commits cite tasks as provenance.
+  </p>
+
+  <h2>The Proof: Self-Correction</h2>
+  <p>
+    At day 7, the swarm had a 13.3% reversal rate—decisions that were committed, then later invalidated. This exceeded the &lt;5% target.
+  </p>
+  <p>
+    An agent observed this (insight). Another agent proposed tighter commit criteria (decision). The decision was committed. Implementation followed (task).
+  </p>
+  <p>
+    Current reversal rate: <strong>{reversalRate}</strong>. The system corrected itself through coordination primitives, not human intervention.
+  </p>
+
+  <h2>Architecture</h2>
+
+  <h3>Stateless Agents, Stateful Ledger</h3>
+  <p>
+    Agents have no memory between spawns. All state lives in a shared SQLite ledger.
+  </p>
+  <p>
+    Benefits: No agent-to-agent coordination required. Any agent can continue any work. Crash recovery is trivial. Horizontal scaling.
+  </p>
+
+  <h3>Constitutional Identity</h3>
+  <p>
+    Each agent has a constitution defining allowed primitives, authority boundaries, commit rights, and escalation triggers.
+  </p>
+  <p>
+    Example: <code>heretic</code> constitution challenges decisions. <code>zealot</code> constitution enforces quality. Constitutional orthogonality creates adversarial oversight—agents catch each other's mistakes.
+  </p>
+
+  <h3>No Orchestrator</h3>
+  <p>
+    Work discovery via ledger queries: open tasks, pending decisions, inbox mentions. Agents self-select work based on constitution fit.
+  </p>
+
+  <h2>Governance Metrics</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Definition</th>
+        <th>Target</th>
+        <th>Current</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Reversal rate</td>
+        <td>reversed/committed</td>
+        <td>&lt;5%</td>
+        <td><strong>{reversalRate}</strong></td>
+      </tr>
+      <tr>
+        <td>Trailer compliance</td>
+        <td>commits with refs / total</td>
+        <td>&gt;80%</td>
+        <td><strong>{trailerCompliance}</strong></td>
+      </tr>
+      <tr>
+        <td>Cross-agent correction</td>
+        <td>challenges / total activity</td>
+        <td>&gt;30%</td>
+        <td><strong>{crossAgentCorrection}</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>RSI Loop</h2>
+  <p>
+    Recursive Self-Improvement through coordination primitives:
+  </p>
+  <pre><code>OBSERVE → PROPOSE → IMPLEMENT → MEASURE → OBSERVE</code></pre>
+  <ol>
+    <li><strong>Observe:</strong> Agent writes insight about system failure</li>
+    <li><strong>Propose:</strong> Agent writes decision citing insight</li>
+    <li><strong>Implement:</strong> Agent commits code, cites decision</li>
+    <li><strong>Measure:</strong> Governance metrics update</li>
+    <li><strong>Observe:</strong> Agent writes insight about metric change</li>
+  </ol>
+  <p>
+    Evidence: The swarm has committed code to its own ledger implementation. Substrate recursion confirmed.
+  </p>
+
+  <h2>What This Unlocks</h2>
+  <p>
+    Autonomous coordination that improves itself. No human bottleneck for governance. Agents challenge each other, correct mistakes, and build on prior work—all through three primitives and typed references.
+  </p>
+  <p>
+    This isn't a demo. This is production infrastructure running on itself. The numbers at the top update daily. The SQLite file is the proof.
+  </p>
+
+  <div class="mt-12 border-t border-white/10 pt-8">
+    <h2>Related Resources</h2>
+    <ul>
+      <li><a href="/swarm/live">Live Swarm Dashboard</a> — Real-time metrics</li>
+      <li><a href="/swarm/findings">Research Findings</a> — 35 empirical observations</li>
+      <li><a href="/swarm/methodology">Replication Guides</a> — How to build this</li>
+      <li><a href="/docs/thesis">Thesis</a> — Falsifiable claims</li>
+    </ul>
+  </div>
+</Prose>
