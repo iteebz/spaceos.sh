@@ -1,18 +1,10 @@
 import { test, expect } from 'playwright/test'
 
 test.describe('Landing Page', () => {
-  test('renders hero title', async ({ page }) => {
+  test('renders core elements', async ({ page }) => {
     await page.goto('/')
     await expect(page.locator('h2').first()).toContainText('space')
-  })
-
-  test('renders stats section', async ({ page }) => {
-    await page.goto('/')
     await expect(page.locator('#live-stats')).toBeVisible()
-  })
-
-  test('renders navigation links', async ({ page }) => {
-    await page.goto('/')
     await expect(page.locator('a[href="/docs/thesis"]')).toBeVisible()
     await expect(page.locator('a[href="/docs/philosophy"]')).toBeVisible()
     await expect(page.locator('a[href="/swarm/papers"]')).toBeVisible()
