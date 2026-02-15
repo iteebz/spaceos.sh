@@ -3,4 +3,3 @@ node_modules/
 .astro/
 test-results/
 public/stats.json
-wrangler.toml
