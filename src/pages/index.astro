@@ -4,65 +4,46 @@ import Prose from "../layouts/Prose.astro";
 
 <Prose
   title="space labs"
-  description="Internal research publications on human+AI collaboration"
+  description="Research on multi-agent coordination and autonomous systems"
 >
-  <div class="text-xs text-white/40 uppercase tracking-wide mb-2">space labs</div>
-  <h1>Research Publications</h1>
+  <h1>Publications</h1>
   <p class="text-white/60 text-lg leading-relaxed">
-    Internal research from Space on human+AI collaboration, multi-agent coordination, and autonomous systems.
+    Research on multi-agent coordination, autonomous governance, and
+    self-improving systems.
   </p>
 
-  <div class="mt-12 space-y-8">
-    <section>
-      <h2 class="text-2xl text-white mb-4">Core Publications</h2>
-      <ul class="space-y-4">
-        <li>
-          <a href="/whitepaper" class="text-lg text-white hover:text-white/80">
-            SPACE: A Coordination Primitive for Autonomous Agent Swarms
-          </a>
-          <p class="text-white/60 text-sm mt-1">
-            Three primitives (insight, task, decision) with typed references. Live production system with 8,310 spawns over 39 days.
-          </p>
-        </li>
-        <li>
-          <a href="/docs/thesis" class="text-lg text-white hover:text-white/80">
-            Thesis: Falsifiable Claims
-          </a>
-          <p class="text-white/60 text-sm mt-1">
-            Testable hypotheses about multi-agent coordination and self-improvement.
-          </p>
-        </li>
-        <li>
-          <a href="/docs/philosophy" class="text-lg text-white hover:text-white/80">
-            Design Philosophy
-          </a>
-          <p class="text-white/60 text-sm mt-1">
-            Rationale behind Space-OS architecture and principles.
-          </p>
-        </li>
-      </ul>
-    </section>
-
-    <section class="border-t border-white/10 pt-8">
-      <h2 class="text-2xl text-white mb-4">Agent Research</h2>
-      <p class="text-white/60 leading-relaxed mb-4">
-        For agent-authored swarm findings, live metrics, and methodology, see 
-        <a href="https://swarmbrr.com" class="text-white underline hover:text-white/80">swarmbrr.com</a> 
-        — the autonomous collective's own publication platform.
-      </p>
+  <div class="mt-12 space-y-6">
+    <a href="/whitepaper" class="block border border-white/10 rounded-lg p-6 hover:border-white/20 transition-colors no-underline">
+      <h2 class="text-xl text-white mb-2">SPACE: A Coordination Primitive for Autonomous Agent Swarms</h2>
       <p class="text-white/60 text-sm">
-        swarmbrr.com hosts research written by the agents themselves about their coordination patterns, 
-        self-observation, and governance evolution.
+        Three primitives with typed references. Live production system demonstrating
+        measurable self-improvement over 40+ days of autonomous operation.
       </p>
-    </section>
+    </a>
 
-    <section class="border-t border-white/10 pt-8">
-      <h2 class="text-2xl text-white mb-4">About</h2>
-      <p class="text-white/60 leading-relaxed">
-        This is an internal research site for human-authored publications about coordination primitives. 
-        Not a product. For Space's coordination product, see 
-        <a href="https://spacebrr.com" class="text-white underline">spacebrr.com</a>.
+    <a href="/docs/thesis" class="block border border-white/10 rounded-lg p-6 hover:border-white/20 transition-colors no-underline">
+      <h2 class="text-xl text-white mb-2">The Coordination Hypothesis</h2>
+      <p class="text-white/60 text-sm">
+        Falsifiable claims about multi-agent coordination. Why swarm > solo,
+        and how to measure it.
       </p>
-    </section>
+    </a>
+
+    <a href="/docs/philosophy" class="block border border-white/10 rounded-lg p-6 hover:border-white/20 transition-colors no-underline">
+      <h2 class="text-xl text-white mb-2">Design Philosophy</h2>
+      <p class="text-white/60 text-sm">
+        Architectural rationale. Stateless agents, stateful swarm, and why
+        governance beats orchestration.
+      </p>
+    </a>
+  </div>
+
+  <div class="mt-12 pt-8 border-t border-white/10 text-white/40 text-sm">
+    <p>
+      For live swarm metrics and agent-authored findings, see
+      <a href="https://swarmbrr.com" class="text-white/60 underline hover:text-white">swarmbrr.com</a>.
+      For the product, see
+      <a href="https://spacebrr.com" class="text-white/60 underline hover:text-white">spacebrr.com</a>.
+    </p>
   </div>
 </Prose>
