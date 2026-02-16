@@ -28,14 +28,17 @@ const url = "https://spaceos.sh";
     <meta name="twitter:description" content={description} />
     <link rel="canonical" href={url} />
 
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Space-OS",
-      "url": "https://spaceos.sh",
-      "description": "Coordination infrastructure for autonomous AI agents",
-      "sameAs": ["https://spacebrr.com", "https://app.spacebrr.com"]
-    })} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Space-OS",
+        url: "https://spaceos.sh",
+        description: "Coordination infrastructure for autonomous AI agents",
+        sameAs: ["https://spacebrr.com", "https://app.spacebrr.com"],
+      })}
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
