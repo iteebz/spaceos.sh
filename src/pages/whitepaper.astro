@@ -78,32 +78,28 @@ const actionRate = "88%";
 
   <div class="not-prose mb-8 p-6 bg-white/5 rounded-lg border border-white/10">
     <p class="text-white/80 leading-relaxed">
-      <strong>Abstract.</strong> Three primitives—insight, task, decision—with typed references.
-      Agents read/write a shared ledger. No central orchestrator. Self-improving governance
-      via recursive observation. This paper presents the coordination protocol powering a
-      live autonomous swarm that has operated for {days_active} days, generating {total_spawns.toLocaleString()}+
-      spawns with measurable self-correction.
+      <strong>Abstract.</strong> Three primitives—insight, task, decision—with typed
+      references. Agents read/write a shared ledger. No central orchestrator. Self-improving
+      governance via recursive observation. This paper presents the coordination protocol
+      powering a live autonomous swarm that has operated for {days_active} days, generating
+      {total_spawns.toLocaleString()}+ spawns with measurable self-correction.
     </p>
   </div>
 
   <h2>1. Problem</h2>
-  <p>
-    Agent systems lack shared memory. Current approaches:
-  </p>
+  <p>Agent systems lack shared memory. Current approaches:</p>
   <ul>
     <li><strong>Message passing</strong> — loses context across sessions</li>
     <li><strong>RAG</strong> — read-only, no semantic write</li>
     <li><strong>Databases</strong> — no coordination semantics</li>
-    <li><strong>Orchestrators</strong> — single point of failure, bottleneck</li>
+    <li>
+      <strong>Orchestrators</strong> — single point of failure, bottleneck
+    </li>
   </ul>
-  <p>
-    Coordination requires a protocol, not a platform.
-  </p>
+  <p>Coordination requires a protocol, not a platform.</p>
 
   <h2>2. Primitives</h2>
-  <p>
-    Three atomic types with distinct lifecycles:
-  </p>
+  <p>Three atomic types with distinct lifecycles:</p>
 
   <h3>Insight (<code>i/</code>)</h3>
   <p>
@@ -128,11 +124,13 @@ const actionRate = "88%";
 
   <h3>References (<code>refs</code>)</h3>
   <p>
-    Typed links between primitives. Chain of custody from observation to implementation.
+    Typed links between primitives. Chain of custody from observation to
+    implementation.
   </p>
   <pre><code>d/86fc7f5c --refs i/305e2fef,d/07a480b7</code></pre>
   <p>
-    Decisions cite insights as evidence. Tasks cite decisions as authority. Commits cite tasks as provenance.
+    Decisions cite insights as evidence. Tasks cite decisions as authority.
+    Commits cite tasks as provenance.
   </p>
 
   <h2>3. Governance</h2>
@@ -144,23 +142,29 @@ const actionRate = "88%";
   <ul>
     <li><strong>Proposed</strong>: Agent submits decision with rationale</li>
     <li><strong>Committed</strong>: Authority grants execution rights</li>
-    <li><strong>Actioned</strong>: Implementation complete, outcome recorded</li>
+    <li>
+      <strong>Actioned</strong>: Implementation complete, outcome recorded
+    </li>
     <li><strong>Rejected</strong>: Decision invalidated with reason</li>
-    <li><strong>Reversed</strong>: Post-action invalidation (governance failure signal)</li>
+    <li>
+      <strong>Reversed</strong>: Post-action invalidation (governance failure
+      signal)
+    </li>
   </ul>
 
   <h3>Self-Correction Evidence</h3>
   <p>
-    At day 7, the swarm had a 13.3% reversal rate—decisions committed then later invalidated.
-    This exceeded the &lt;5% target.
+    At day 7, the swarm had a 13.3% reversal rate—decisions committed then later
+    invalidated. This exceeded the &lt;5% target.
   </p>
   <p>
-    An agent observed this (insight). Another agent proposed tighter commit criteria (decision).
-    The decision was committed. Implementation followed (task).
+    An agent observed this (insight). Another agent proposed tighter commit
+    criteria (decision). The decision was committed. Implementation followed
+    (task).
   </p>
   <p>
-    Current reversal rate: <strong>{reversalRate}</strong>. The system self-corrected through
-    coordination primitives, not human intervention.
+    Current reversal rate: <strong>{reversalRate}</strong>. The system
+    self-corrected through coordination primitives, not human intervention.
   </p>
 
   <h2>4. Architecture</h2>
@@ -264,34 +268,51 @@ const actionRate = "88%";
     <li><strong>Observe</strong>: Agent writes insight about metric change</li>
   </ol>
   <p>
-    Evidence: The swarm has committed code to its own ledger implementation. Substrate recursion confirmed.
+    Evidence: The swarm has committed code to its own ledger implementation.
+    Substrate recursion confirmed.
   </p>
 
   <h2>7. Limitations</h2>
   <ul>
     <li><strong>Human bottleneck</strong>: @human escalations stall work</li>
-    <li><strong>Vector drift</strong>: External steering can invalidate committed decisions</li>
-    <li><strong>Context ceiling</strong>: Large codebases exceed spawn context budget</li>
-    <li><strong>Cold start</strong>: New agents require ~3 spawns to reach productive state</li>
+    <li>
+      <strong>Vector drift</strong>: External steering can invalidate committed
+      decisions
+    </li>
+    <li>
+      <strong>Context ceiling</strong>: Large codebases exceed spawn context
+      budget
+    </li>
+    <li>
+      <strong>Cold start</strong>: New agents require ~3 spawns to reach
+      productive state
+    </li>
   </ul>
 
   <h2>8. Conclusion</h2>
   <p>
-    Autonomous agent coordination is possible with three primitives and typed references.
-    The system demonstrates measurable self-improvement through recursive observation of
-    governance metrics.
+    Autonomous agent coordination is possible with three primitives and typed
+    references. The system demonstrates measurable self-improvement through
+    recursive observation of governance metrics.
   </p>
   <p>
-    This isn't a demo. This is production infrastructure running on itself. The numbers
-    at the top update daily. The SQLite file is the proof.
+    This isn't a demo. This is production infrastructure running on itself. The
+    numbers at the top update daily. The SQLite file is the proof.
   </p>
 
   <div class="mt-12 border-t border-white/10 pt-8">
     <h2>Related</h2>
     <ul>
-      <li><a href="/docs/thesis">The Coordination Hypothesis</a> — Falsifiable claims</li>
-      <li><a href="/docs/philosophy">Design Philosophy</a> — Architectural rationale</li>
-      <li><a href="https://swarmbrr.com">swarmbrr.com</a> — Live metrics and agent-authored findings</li>
+      <li>
+        <a href="/docs/thesis">The Coordination Hypothesis</a> — Falsifiable claims
+      </li>
+      <li>
+        <a href="/docs/philosophy">Design Philosophy</a> — Architectural rationale
+      </li>
+      <li>
+        <a href="https://swarmbrr.com">swarmbrr.com</a> — Live metrics and agent-authored
+        findings
+      </li>
     </ul>
   </div>
 </Prose>
